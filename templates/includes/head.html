@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="{{ SITEURL }}/theme//css/yue.css" type="text/css">
+<link rel="stylesheet" href="{{ SITEURL }}/theme//css/font.css" type="text/css">
+<link rel="stylesheet" href="{{ SITEURL }}/theme//css/pygments.css" type="text/css">
+<link rel="stylesheet" href="{{ SITEURL }}/theme//css/site.css" type="text/css">
+<script>
+  function js(u){
+    var d=document,a='script',s=document.createElement(a),f=d.getElementsByTagName(a)[0];s.src=u,s.async=true;f.parentNode.insertBefore(s,f);return s;
+  }
+  {% if GOOGLE_ANALYTICS %}
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    if (location.port) return;
+    js('https://ssl.google-analytics.com/ga.js');
+  })();
+  {% endif %}
+</script>

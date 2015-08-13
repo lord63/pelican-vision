@@ -1,0 +1,15 @@
+{% extends "default.html" %}
+{% block content %}
+<ul class="entry-list">
+  {% for article in articles_page.object_list %}
+    <li class="entry-item">
+      <div class="entry-meta">
+        <time class="updated">{{ article.date | strftime("%b %d, %Y") }}</time>
+      </div>
+      <div class="detail">
+        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

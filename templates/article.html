@@ -1,48 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>{{ article.title }} — {{ SITENAME }}</title>
-  {% include 'includes/head.html' %}
-</head>
-<body>
-  {% include 'includes/navigation.html' %}
-
-  <div id="subheader">
-    <div class="container yue">
-      {% include 'includes/contact.html' %}
-    </div>
-  </div>
-
-  <div id="main">
-    <div class="container yue">
-      <div class="hentry" itemscope itemtype="http://schema.org/Article">
-        <h1 class="entry-title" itemprop="name">{{ article.title }}</h1>
-        {% if article.date %}
-        <div class="entry-meta">
-          <time class="updated" datetime="{{ article.date | strftime('%b %d, %Y') }}" itemprop="datePublished" pubdate>
-            {{ article.date | strftime('%b %d, %Y') }}
-          </time>
-          <span class="author vcard">
-            <span class="fn" itemprop="author">{{ AUTHOR }}</span>
-          </span>
-        </div>
-        {% endif %}
-        <div class="entry-content" itemprop="articleBody">
-          {{ article.content }}
-        </div>
+{% extends "default.html" %}
+{% block content %}
+  <div class="hentry" itemscope itemtype="http://schema.org/Article">
+      <h1 class="entry-title" itemprop="name">{{ article.title }}</h1>
+      {% if article.date %}
+      <div class="entry-meta">
+        <time class="updated" datetime="{{ article.date | strftime('%b %d, %Y') }}" itemprop="datePublished" pubdate>
+          {{ article.date | strftime('%b %d, %Y') }}
+        </time>
+        <span class="author vcard">
+          <span class="fn" itemprop="author">{{ AUTHOR }}</span>
+        </span>
       </div>
-      {% if article.tags %}
-        <div class="entry-tags">
-          {% for tag in article.tags %}
-          <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
       {% endif %}
-      {% include 'includes/disqus.html' %}
-    </div>
+      <div class="entry-content" itemprop="articleBody">
+        {{ article.content }}
+      </div>
   </div>
-  {% include 'includes/footer.html' %}
-</body>
-</html>
+  {% if article.tags %}
+    <div class="entry-tags">
+      {% for tag in article.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+      </div>
+  {% endif %}
+  {% include 'includes/disqus.html' %}
+{% endblock %}

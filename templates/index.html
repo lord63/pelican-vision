@@ -4,7 +4,7 @@
   {% for article in articles_page.object_list %}
     <li class="entry-item">
       <div class="entry-meta">
-        <time class="updated">{{ article.date | strftime("%b %d, %Y") }}</time>
+        <time class="updated">{{ article.date | strftime(DEFAULT_DATE_FORMAT) }}</time>
       </div>
       <div class="detail">
         <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>

@@ -4,8 +4,8 @@
       <h1 class="entry-title" itemprop="name">{{ article.title }}</h1>
       {% if article.date %}
       <div class="entry-meta">
-        <time class="updated" datetime="{{ article.date | strftime('%b %d, %Y') }}" itemprop="datePublished" pubdate>
-          {{ article.date | strftime('%b %d, %Y') }}
+        <time class="updated" datetime="{{ article.date | strftime(DEFAULT_DATE_FORMAT) }}" itemprop="datePublished" pubdate>
+          {{ article.date | strftime(DEFAULT_DATE_FORMAT) }}
         </time>
         <span class="author vcard">
           <span class="fn" itemprop="author">{{ AUTHOR }}</span>

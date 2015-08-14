@@ -23,7 +23,7 @@
   {% if article.tags %}
     <div class="entry-tags">
       {% for tag in article.tags %}
-      <span class="tag">{{ tag }}</span>
+        <a class="tag" href="/archives.html#{{ tag }}">{{ tag }}</a>
       {% endfor %}
       </div>
   {% endif %}

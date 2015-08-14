@@ -1,0 +1,44 @@
+{% extends "default.html" %}
+
+{% block title %}
+  Archive — {{ SITENAME }}
+{% endblock %}
+
+{% block content %}
+<div class="entry-header">
+  <div class="container yue">
+    <h1 class="entry-title">Archive</h1>
+    <p class="entry-description"><span id="entry-count">Everything</span> in the <strong id="entry-category"></strong> category.</p>
+  </div>
+</div>
+
+<div id="main" class="container yue">
+  <ul class="entry-list" role="main">
+    {% for article in articles %}
+    <li class="entry-item {{ article.tags | join(' ') }} {{ article.date | strftime('%Y') }}">
+      <div class="entry-meta"><time>{{ article.date | strftime(DEFAULT_DATE_FORMAT) }}</time></div>
+      <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<script>
+  if (location.hash && document.querySelectorAll) {
+    var items = document.querySelectorAll('.entry-item');
+    var className = location.hash.replace('#', '');
+    var count = 0;
+    for (var i = 0; i < items.length; i++) {
+      (function(el) {
+        if (el.classList.contains(className)) {
+          count += 1;
+        } else {
+          el.style.display = 'none';
+        }
+      })(items[i]);
+    }
+    var $ = function(id) { return document.getElementById(id) };
+    $('entry-category').innerHTML = location.hash;
+    $('entry-count').innerHTML = count + ' entries';
+  }
+</script>
+{% endblock %}

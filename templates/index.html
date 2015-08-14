@@ -8,6 +8,7 @@
       </div>
       <div class="detail">
         <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <div class="description">{{ article.content | striptags | truncate(100) }}</div>
       </div>
     </li>
   {% endfor %}

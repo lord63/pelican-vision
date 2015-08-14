@@ -1,4 +1,8 @@
 {% extends "default.html" %}
+{% block title %}
+  {{ article.title }} — {{ SITENAME }}
+{% endblock %}
+
 {% block content %}
   <div class="hentry" itemscope itemtype="http://schema.org/Article">
       <h1 class="entry-title" itemprop="name">{{ article.title }}</h1>

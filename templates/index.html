@@ -1,4 +1,8 @@
 {% extends "default.html" %}
+{% block title %}
+  {{ SITENAME }}
+{% endblock %}
+
 {% block content %}
 <ul class="entry-list">
   {% for article in articles_page.object_list %}

@@ -1,4 +1,6 @@
-Contact me via
-{% for name, link in SOCIAL %}
-<a href="{{ link }}">{{ name }}</a>&nbsp;
-{% endfor %}
+{% if SOCIAL %}
+  Contact me via
+  {% for name, link in SOCIAL %}
+  <a href="{{ link }}">{{ name }}</a>&nbsp;
+  {% endfor %}
+{% endif %}
